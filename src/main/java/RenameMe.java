@@ -14,8 +14,8 @@ public class RenameMe implements IBank {
 	}
 
 	@Override
-	public void WithDrawal(Float f) {
-		// TODO Auto-generated method stub
+	public void WithDrawal(Float moneyValue) {
+		todo.withdraw(Money.getInstanceOf(moneyValue));
 		
 	}
 

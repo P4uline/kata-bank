@@ -8,10 +8,16 @@ public class Money {
 	}
 
 	public static Money getInstanceOf(Float money) {
+		if (money <= 0f) {
+			throw new IllegalStateException("Should be positive!");
+		}
+		if (!money.toString().matches("^\\d+\\.\\d{0,2}$")) {
+			throw new IllegalStateException("Max 2 decimals!");
+		}
 		return new Money(money);
 	}
 	
-	public Float value() {
+	public float value() {
 		return money;
 	}
 	

@@ -110,6 +110,10 @@ C'est un passe-plat : elle doit juste transformer le float en un objet metier
 par ex.
 c'est tellement simpliste...
 
+iteration 3 : 
+finir les tests sur les adapteurs
+ajouter la gestions de transactions dans une liste de logs
+chaque trasaction est ajouté dans logs, chaque query va lire logs
 
 
 

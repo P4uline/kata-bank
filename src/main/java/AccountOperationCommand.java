@@ -1,5 +1,5 @@
 
-public interface ToDoRenameCommand {
+public interface AccountOperationCommand {
 	
 	void deposit(Money money);
 

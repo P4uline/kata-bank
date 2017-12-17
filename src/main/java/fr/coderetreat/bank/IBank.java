@@ -1,6 +1,7 @@
 package fr.coderetreat.bank;
 
 // contrainte : on ne change pas le nom de l'interface
+// l'interface est imposée par client
 public interface IBank {
 	
 	void deposit(Float f);

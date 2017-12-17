@@ -9,23 +9,23 @@ import fr.coderetreat.bank.IBank;
  */
 public class BankAdapter implements IBank {
 	
-	AccountOperationCommand todo;
+	private AccountOperationCommand accountOperationCommand;
 	
-	AccountQuery todo2;
+	private AccountQuery accountQuery;
 	
 	public BankAdapter(AccountOperationCommand toDoRenameCommand, AccountQuery todo2) {
-		this.todo = toDoRenameCommand;
-		this.todo2 = todo2;
+		this.accountOperationCommand = toDoRenameCommand;
+		this.accountQuery = todo2;
 	}
 
 	@Override
 	public void deposit(Float moneyValue) {
-		todo.deposit(Money.getInstanceOf(moneyValue));
+		accountOperationCommand.deposit(Money.getInstanceOf(moneyValue));
 	}
 
 	@Override
 	public void WithDrawal(Float moneyValue) {
-		todo.withdraw(Money.getInstanceOf(moneyValue));
+		accountOperationCommand.withdraw(Money.getInstanceOf(moneyValue));
 		
 	}
 
@@ -33,7 +33,7 @@ public class BankAdapter implements IBank {
 	public String extract() {
 		
 		// TODO Auto-generated method stub
-		return todo2.extract();
+		return accountQuery.extract();
 	}
 
 }

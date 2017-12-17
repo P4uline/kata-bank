@@ -1,0 +1,116 @@
+
+PRESENTATION DE ROMEU : ISP
+
+Qu'est ce qui fait qu'on fait trop ou pas assez d'interface ?
+
+l'interface c'est voir l'amour comme un verbe, pas comme un sentiment mais
+comme un ensemble d'actions
+
+une interface appartient à l'appelant et pas par celui qui l'implemente
+Je ne suis pas definie par ce que je suis mais par ce que j'apporte au autres
+Le contrat est definie par ce que je consomme
+
+Mais On ne peut pas faire en sorte que les autres implemente une interface
+Respecter l'isp revient à faire des adapteurs
+
+Exemple du cuisiniste : 
+On demande de faire une cuisine
+-> ekectromenager
+-> murs
+-> plans de travail
+-> projet de cuisine
+
+le cuisiniste dépend d'une interface : Ikea
+
+Ne pas faire des interface qui commencent pas I et des implémentation qui
+terminent par Impl !!!!
+
+le cuisiniste est fortement couplé à Ikea, si il veut changer de fournisseur
+-> gros couts de refactoring
+
+Pour passer à ICastoramma, ou ILeroyMerlin
+
+Notions:
+Appartenance à l'appelant
+Polymorphisme : pouvoir changer les appelés
+
+Si on nomme une interface I et une implementation Impl, on admet qu'il n'y a
+qu'une interface et une implémentation possible : on viole le principe de
+l'ISP
+
+on pourrait avoir plutot une interface nommée : Fourniseur ou
+CuisinisteProvider
+
+One ne veut pas forcemenet que Ikea LEroyMerlun et Castoramma implemente
+directement cette interface
+
+
+Demarche valide: le cuisiniste a des besoins, un plan de travail, une hotte, etc....
+Partir de ces besoins unitaires, très découpés et faire son découpage
+d'interface à partir de ça.
+Après, faire des adapteurs pour Ikea, LeroyMerlin, etc
+Chaque adapteur implemente mes interfaces metiers necessaires
+
+
+10:53 : EXPRESSION DES IDEES POUR LA JOURENEE
+- scratch refactoring : on ne se soucis pas si le code compile -> on montre des
+idées rapidement 
+- kata sans implementation ; interface only : pour ça TDD outsiding peut etre
+interessant. On commence par l'exterieur, on finit par l'interieur avec kata
+bank
+- kata builder
+- kata : essayer de creer un code avec un appelant et un appelé, et tout faire
+peter en changeant l'appelé
+
+A -> I | b c
+
+
+DEMARRAGE
+Iteration 1 : implementer kata-bank sans contrainte
+
+Iteration 2 : 
+Stub : fake, une implementation qui ne fait rien
+mock : on peut piloter le comportement, il existe un comportement par defaut
+spy : comme un mock mais sur la vraie un implementation : pattern proxy qui
+appelle la vrais implem, mais pas sur certains comportements. Dans un monde
+parfait, pas besoin de spy. On utilise le spy pour contourner les pb liées au
+legacy, tester du code non testable.
+
+
+Quand c'est possible eviter d'utiliser Mockito.
+
+
+Regle outside - in : tu ne mock pas ce que tu tests, tu ne test pas ce que tu
+mock
+
+Un value object, par exemple integer, on ne va pas les mocker
+Fixture : valeurs pour les tests
+Generateur avec des valeurs aleatoire et property based testing
+
+TDD outside-in : on part du client : on crée les interface, on mock les
+implem.
+Puis on faire les implem, on les interfaces dont elle dependent, on mock les
+implem de ces nouvelle interfaces, etc, etc
+
+On fait une interface, puis un adapter de IBank, Account va implementer une
+interface plus propre que IBank et être adaptée par l'Adapter
+
+Combien d'interfaces pour Account ? Cqrs ecriture/lecture ? SRP : 1 interface
+par methode ? autre choix ? 
+
+Qui va avoir le numéro de compte ?
+On sait que tout en bas, on a une bdd. On peut avoir une class Database qui
+contient une hashmap pour simuler une base.
+
+Plus bas on peut avoir des repository, on peut avoir un printer (pour extract)
+
+On test d'abord l'adapteur : attention on peut se rater en y passant trop de
+temps.
+C'est un passe-plat : elle doit juste transformer le float en un objet metier
+par ex.
+c'est tellement simpliste...
+
+
+
+
+

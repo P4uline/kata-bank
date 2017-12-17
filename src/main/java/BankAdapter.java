@@ -26,13 +26,10 @@ public class BankAdapter implements IBank {
 	@Override
 	public void WithDrawal(Float moneyValue) {
 		accountOperationCommand.withdraw(Money.getInstanceOf(moneyValue));
-		
 	}
 
 	@Override
 	public String extract() {
-		
-		// TODO Auto-generated method stub
 		return accountQuery.extract();
 	}
 
